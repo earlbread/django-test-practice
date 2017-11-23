@@ -35,6 +35,20 @@ class NewVisitorTest(unittest.TestCase):
 
         self.assertIn('1: Buy feacock feathers', [row.text for row in rows])
 
+        inputbox.send_keys('Use feacock feathers to make a fly')
+
+        table = self.browser.find_element_by_id('id_list_table')
+        rows = self.browser.find_elements_by_tag_name('tr')
+
+        self.assertIn('1: Buy feacock feathers', [row.text for row in rows])
+        self.assertIn(
+                '2: Use feacock feathers to make a fly',
+                [row.text for row in rows]
+        )
+
+        inputbox.send_keys(Keys.ENTER)
+        time.sleep(1)
+
         self.fail('Finish the test!')
 
 
