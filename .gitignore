@@ -116,3 +116,6 @@ venv.bak/
 
 # PyCharm
 .idea
+
+# Collect static folder
+/static/
